@@ -18,6 +18,9 @@ class OrdemServicoService:
         )
         return self.repository.add(ordem)
 
+    def get_ordem(self, ordem_id):
+        return self.repository.get(ordem_id)
+
     def atualizar_valor(self, ordem, estrategia):
         ordem.calcular_valor_total(estrategia)
         self.repository.session.commit()

@@ -11,6 +11,7 @@ class Aparelho(Base):
     marca = Column(String(120), nullable=True)
     modelo = Column(String(120), nullable=True)
     numero_serie = Column(String(120), nullable=True)
+    cor = Column(String(50), nullable=True)
     observacoes = Column(String(255), nullable=True)
     status = Column(String(50), default="pendente")
     cliente_id = Column(Integer, ForeignKey("clientes.id"), nullable=False)

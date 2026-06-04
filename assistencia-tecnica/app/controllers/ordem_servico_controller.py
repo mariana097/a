@@ -7,3 +7,9 @@ class OrdemServicoController:
 
     def listar_ordens(self):
         return self.service.listar()
+
+    def obter_ordem(self, ordem_id):
+        return self.service.get_ordem(ordem_id)
+
+    def calcular_valor_ordem(self, ordem, estrategia):
+        return self.service.atualizar_valor(ordem, estrategia)
