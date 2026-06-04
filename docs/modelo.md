@@ -276,7 +276,7 @@ ORDEM_SERVICO }o--o{ EQUIPAMENTO : utiliza
 | telefone | VARCHAR(20)  | NOT NULL  | Telefone            |
 | email    | VARCHAR(100) |           | E-mail              |
 
----
+
 
 ## APARELHO
 
@@ -291,7 +291,7 @@ ORDEM_SERVICO }o--o{ EQUIPAMENTO : utiliza
 | status       | VARCHAR(20) |           | Situação atual       |
 | cliente_id   | INTEGER     | FK        | Cliente proprietário |
 
----
+
 
 ## TECNICO
 
@@ -300,7 +300,7 @@ ORDEM_SERVICO }o--o{ EQUIPAMENTO : utiliza
 | id            | INTEGER      | PK        | Identificador   |
 | especialidade | VARCHAR(100) |           | Área de atuação |
 
----
+
 
 ## ORDEM_SERVICO
 
@@ -316,7 +316,7 @@ ORDEM_SERVICO }o--o{ EQUIPAMENTO : utiliza
 | aparelho_id        | INTEGER       | FK        | Aparelho associado   |
 | tecnico_id         | INTEGER       | FK        | Técnico responsável  |
 
----
+
 
 ## VISITA_TECNICA
 
@@ -329,7 +329,7 @@ ORDEM_SERVICO }o--o{ EQUIPAMENTO : utiliza
 | status           | VARCHAR(20) |           | Status da visita    |
 | os_id            | INTEGER     | FK        | Ordem de serviço    |
 
----
+
 
 ## ESTOQUE
 
@@ -339,7 +339,7 @@ ORDEM_SERVICO }o--o{ EQUIPAMENTO : utiliza
 | quantidade_disponivel | INTEGER | NOT NULL  | Quantidade disponível |
 | quantidade_minima     | INTEGER | NOT NULL  | Estoque mínimo        |
 
----
+
 
 ## EQUIPAMENTO
 
@@ -351,7 +351,7 @@ ORDEM_SERVICO }o--o{ EQUIPAMENTO : utiliza
 | valor_unitario | DECIMAL(10,2) | NOT NULL  | Valor unitário      |
 | estoque_id     | INTEGER       | FK        | Estoque relacionado |
 
----
+
 
 ## CONTA_RECEBER
 
@@ -363,7 +363,7 @@ ORDEM_SERVICO }o--o{ EQUIPAMENTO : utiliza
 | status     | VARCHAR(20)   | NOT NULL  | Situação da cobrança         |
 | os_id      | INTEGER       | FK        | Ordem de serviço relacionada |
 
----
+
 
 ## PAGAMENTO
 
@@ -375,8 +375,7 @@ ORDEM_SERVICO }o--o{ EQUIPAMENTO : utiliza
 | forma_pagamento  | VARCHAR(30)   | NOT NULL  | Forma de pagamento |
 | conta_receber_id | INTEGER       | FK        | Conta recebida     |
 
-```
----
+
 
 
 
