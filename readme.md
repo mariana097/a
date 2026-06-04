@@ -67,35 +67,7 @@ As entidades representam objetos do mundo real da assistência técnica.
 
 ---
 
-# 5. Modelo de Negócio
-
-## Cliente
-
-Responsável por solicitar serviços de manutenção.
-
-## Aparelho
-
-Equipamento pertencente ao cliente.
-
-## Ordem de Serviço
-
-Registro do serviço executado.
-
-## Técnico
-
-Funcionário responsável pela execução dos reparos.
-
-## Estoque
-
-Controle das peças utilizadas.
-
-## Conta a Receber
-
-Controle financeiro das ordens de serviço.
-
----
-
-# 6. Entidades do Sistema
+# 5. Entidades do Sistema
 
 ## Cliente
 
@@ -175,39 +147,7 @@ Herda de Funcionario.
 
 ---
 
-# 7. Diagrama de Classes
-
-```mermaid
-classDiagram
-
-class Cliente
-class Aparelho
-class Funcionario
-class Tecnico
-class Administrador
-class OrdemServico
-class VisitaTecnica
-class Equipamento
-class Estoque
-class ContaReceber
-class Pagamento
-
-Funcionario <|-- Tecnico
-Funcionario <|-- Administrador
-
-Cliente "1" --> "*" Aparelho
-Aparelho "1" --> "*" OrdemServico
-Tecnico "1" --> "*" OrdemServico
-OrdemServico "1" --> "*" VisitaTecnica
-OrdemServico "1" --> "1" ContaReceber
-ContaReceber "1" --> "0..1" Pagamento
-Estoque "1" --> "*" Equipamento
-OrdemServico "*" --> "*" Equipamento
-```
-
----
-
-# 8. Padrão Strategy
+# 6. Padrão Strategy
 
 ## Objetivo
 
@@ -273,7 +213,7 @@ class CalculoDomiciliar(EstrategiaCalculo):
 
 ---
 
-# 9. Padrão Factory Method
+# 7. Padrão Factory Method
 
 ## Objetivo
 
@@ -303,7 +243,7 @@ class EstrategiaFactory:
 
 ---
 
-# 10. Utilização dos Padrões
+# 8. Utilização dos Padrões
 
 ```python
 tipo = "urgente"
@@ -323,7 +263,7 @@ Resultado:
 
 ---
 
-# 11. Benefícios Obtidos
+# 9. Benefícios Obtidos
 
 ## Strategy
 
@@ -339,7 +279,7 @@ Resultado:
 
 ---
 
-# 12. Princípios SOLID Aplicados
+# 10. Princípios SOLID Aplicados
 
 ## SRP
 
@@ -363,7 +303,7 @@ A Ordem de Serviço depende da abstração EstrategiaCalculo.
 
 ---
 
-# 13. Testes Unitários
+# 11. Testes Unitários
 
 Utilização do Pytest para validar:
 
@@ -377,6 +317,102 @@ Utilização do Pytest para validar:
 
 ---
 
-# 14. Conclusão
+# 12. Estrutura de Pastas do Projeto
+
+```text
+assistencia-tecnica/
+│
+├── app/
+│   │
+│   ├── __init__.py
+│   │
+│   ├── models/
+│   │   ├── cliente.py
+│   │   ├── aparelho.py
+│   │   ├── funcionario.py
+│   │   ├── ordem_servico.py
+│   │   ├── visita_tecnica.py
+│   │   ├── equipamento.py
+│   │   ├── estoque.py
+│   │   ├── conta_receber.py
+│   │   └── pagamento.py
+│   │
+│   ├── repositories/
+│   │   ├── cliente_repository.py
+│   │   ├── aparelho_repository.py
+│   │   ├── funcionario_repository.py
+│   │   ├── ordem_servico_repository.py
+│   │   ├── visita_tecnica_repository.py
+│   │   ├── equipamento_repository.py
+│   │   ├── estoque_repository.py
+│   │   ├── conta_receber_repository.py
+│   │   └── pagamento_repository.py
+│   │
+│   ├── services/
+│   │   ├── cliente_service.py
+│   │   ├── aparelho_service.py
+│   │   ├── funcionario_service.py
+│   │   ├── ordem_servico_service.py
+│   │   ├── visita_tecnica_service.py
+│   │   ├── equipamento_service.py
+│   │   ├── estoque_service.py
+│   │   ├── conta_receber_service.py
+│   │   └── pagamento_service.py
+│   │
+│   ├── controllers/
+│   │   ├── cliente_controller.py
+│   │   ├── aparelho_controller.py
+│   │   ├── funcionario_controller.py
+│   │   ├── ordem_servico_controller.py
+│   │   ├── visita_tecnica_controller.py
+│   │   ├── equipamento_controller.py
+│   │   ├── estoque_controller.py
+│   │   ├── conta_receber_controller.py
+│   │   └── pagamento_controller.py
+│   │
+│   ├── strategies/
+│   │   ├── estrategia_calculo.py
+│   │   ├── calculo_padrao.py
+│   │   ├── calculo_urgente.py
+│   │   ├── calculo_por_hora.py
+│   │   └── calculo_domiciliar.py
+│   │
+│   ├── factories/
+│   │   └── estrategia_factory.py
+│   │
+│   ├── database/
+│   │   └── database.py
+│   │
+│   └── config/
+│       └── settings.py
+│
+├── tests/
+│   ├── test_cliente.py
+│   ├── test_aparelho.py
+│   ├── test_funcionario.py
+│   ├── test_ordem_servico.py
+│   ├── test_visita_tecnica.py
+│   ├── test_equipamento.py
+│   ├── test_estoque.py
+│   ├── test_conta_receber.py
+│   ├── test_pagamento.py
+│   ├── test_strategy.py
+│   └── test_factory.py
+│
+├── docs/
+│   ├── requisitos.md
+│   ├── casos_de_uso.md
+│   └── modelo.md
+│
+├── migrations/
+│
+├── requirements.txt
+├── pytest.ini
+├── .gitignore
+├── README.md
+└── run.py
+```
+
+# 13. Conclusão
 
 O projeto utiliza conceitos fundamentais de Programação Orientada a Objetos, aplicando herança, polimorfismo, encapsulamento e abstração. Além disso, emprega os padrões de projeto Strategy e Factory Method para tornar o sistema flexível, extensível e aderente aos princípios SOLID, resultando em uma solução organizada e de fácil manutenção.
